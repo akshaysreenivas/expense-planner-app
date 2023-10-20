@@ -21,9 +21,8 @@ ChartJS.register(
   Legend
 );
 
-
 const RepaymentModel = () => {
-      // Retrieving the list of accounts from Redux store
+  // Retrieving the list of accounts from Redux store
 
   const accounts = useSelector((state) => state.account.accounts);
 
@@ -34,11 +33,10 @@ const RepaymentModel = () => {
     (total, account) => total + account.balance,
     0
   );
-// Handler for updating the monthly payment input
+  // Handler for updating the monthly payment input
   const handleMonthlyPaymentChange = (e) => {
     setMonthlyPayment(parseFloat(e.target.value));
   };
-
 
   // calculating the time series of remaining balances
   const calculateTimeSeries = () => {
@@ -46,10 +44,9 @@ const RepaymentModel = () => {
       (total, account) => total + account.balance,
       0
     );
-    const timeSeriesData = [];
+    const timeSeriesData = [initialBalance];
     let currentBalance = initialBalance;
-
-    while (currentBalance > 0) {
+    for (let month = 0; month < 12; month++) {
       currentBalance -= monthlyPayment;
       if (currentBalance < 0) {
         currentBalance = 0;
@@ -61,7 +58,7 @@ const RepaymentModel = () => {
   };
 
   const timeSeriesData = calculateTimeSeries();
-  
+
   // Data for the Line chart
   const data = {
     labels: Array.from({ length: timeSeriesData.length }, (_, i) => `${i + 1}`),
