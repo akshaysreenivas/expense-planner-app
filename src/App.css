@@ -1,0 +1,52 @@
+/* Define styles for the main app container */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Define styles for the container holding the left and right panels */
+.container {
+  display: flex;
+}
+
+/* Style for the left panel (Accounts) */
+.left-panel {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+/* Style for the right panel (Repayment Model) */
+.right-panel {
+  flex: 2.5;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Style for the scrollable container within each panel */
+.scrollable-container {
+  overflow-y: auto;
+}
+
+.submit-button {
+  color: white;
+  background: black;
+  padding: 4px 13px;
+  border: 1px black;
+  border-radius: 4px;
+}
+
+input {
+  margin: 2px;
+  padding: 4px 13px;
+  border-radius: 4px;
+}
+
+.monthly-payment-div {
+  border-bottom: 2px solid black;
+  margin-bottom: 8px;
+  padding-bottom: 15px;
+}
